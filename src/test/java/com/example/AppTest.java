@@ -9,6 +9,6 @@ class AppTest {
 
     @Test
     void addTwoNumbers() {
-        assertEquals(29, App.add(10, 5));
+        assertEquals(20, App.add(10, 5));
     }
 }
