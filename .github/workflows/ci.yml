@@ -5,7 +5,6 @@ on:
   pull_request:
     branches: [main]
   workflow_dispatch:
-    
 
 permissions:
   contents: read
@@ -13,6 +12,10 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        java-version: ['17', '21']
 
     steps:
       - name: Check out repository
@@ -22,7 +25,7 @@ jobs:
         uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: ${{ matrix.java-version }}
           cache: maven
 
       - name: Build and run tests
