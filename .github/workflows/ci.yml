@@ -26,7 +26,8 @@ jobs:
           cache: maven
 
       - name: Display staging configuration
-        run: echo "Deployment target: ${{ vars.DEPLOY_REGION }}"
+        run: |
+          echo "Deployment target: ${{ vars.DEPLOY_REGION }}"
 
       - name: Build and run tests
         run: mvn -B test
